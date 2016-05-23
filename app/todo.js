@@ -12,6 +12,10 @@ angular.module('todoApp', [])
       todoList.todos.splice(index, 1);
     };
 
+    todoList.completeTodo = function(index) {
+      todoList.todos[index].done = true;
+    };
+
     todoList.remaining = function() {
       var count = 0;
       angular.forEach(todoList.todos, function(todo) {

@@ -16,9 +16,9 @@
       <ul class="unstyled">
         <li ng-repeat="todo in todoList.todos">
           <label class="checkbox">
-            <input type="checkbox" ng-model="todo.done">
             <span class="done-{{todo.done}}">{{todo.text}}</span>
-            <button type="btn btn-small btn-primary" ng-click="todoList.deleteTodo($index)">Delete</button>
+            <button class="btn btn-small btn-primary" ng-click="todoList.completeTodo($index)">Done!</button>
+            <button class="btn btn-small btn-primary" ng-click="todoList.deleteTodo($index)">Delete</button>
           </label>
         </li>
       </ul>
