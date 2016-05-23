@@ -2,7 +2,8 @@ angular.module('todoApp', [])
   .controller('TodoListController', function() {
     var todoList = this;
     todoList.todos = [];
- 
+    todoList.viewMode = 'all';
+
     todoList.addTodo = function() {
       todoList.todos.push({text:todoList.todoText, done:false});
       todoList.todoText = '';
@@ -14,6 +15,22 @@ angular.module('todoApp', [])
 
     todoList.completeTodo = function(index) {
       todoList.todos[index].done = true;
+    };
+
+    todoList.toggleViewMode = function(mode){
+      todoList.viewMode = mode;
+    };
+
+    todoList.isVisible = function(index) {
+      switch(todoList.viewMode) {
+        case 'all':
+          return true;
+        case 'active':
+          return !todoList.todos[index].done;
+        case 'completed':
+          return todoList.todos[index].done; 
+      }
+      return true;
     };
 
     todoList.remaining = function() {
