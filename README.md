@@ -4,7 +4,7 @@
 
 Implement a TODO list web application with the following functionality:
 
-Initial page with empty “TODO list”
+* Initial page with empty “TODO list”
 * User has the ability to Add/Delete a TODO item
 * User has the ability to mark one item as completed
 * User has the ability to view TODO list items in different tabs based on the following states:
