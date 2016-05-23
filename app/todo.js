@@ -8,6 +8,10 @@ angular.module('todoApp', [])
       todoList.todoText = '';
     };
  
+    todoList.deleteTodo = function(index) {
+      todoList.todos.splice(index, 1);
+    };
+
     todoList.remaining = function() {
       var count = 0;
       angular.forEach(todoList.todos, function(todo) {

@@ -1,13 +1,16 @@
 <!doctype html>
 <html ng-app="todoApp">
   <head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="todo.js"></script>
     <link rel="stylesheet" href="todo.css">
   </head>
   <body>
-    <h2>Todo</h2>
-    <div ng-controller="TodoListController as todoList">
+    <div class="container" ng-controller="TodoListController as todoList">
+      <h2>Todo</h2>
       <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
       [ <a href="" ng-click="todoList.archive()">archive</a> ]
       <ul class="unstyled">
@@ -15,6 +18,7 @@
           <label class="checkbox">
             <input type="checkbox" ng-model="todo.done">
             <span class="done-{{todo.done}}">{{todo.text}}</span>
+            <button type="btn btn-small btn-primary" ng-click="todoList.deleteTodo($index)">Delete</button>
           </label>
         </li>
       </ul>
