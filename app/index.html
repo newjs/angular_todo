@@ -11,12 +11,12 @@
   <body>
     <div class="container" ng-controller="TodoListController as todoList">
       <h2>Todo</h2>
-      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+      <input type="text" ng-model="todoList.filterText"  size="30" placeholder="Type here to filter todo items">
       <p>View: [ <button class="btn btn-small btn-link" ng-click="todoList.toggleViewMode('all')">All</button>
         <button class="btn btn-small btn-link" ng-click="todoList.toggleViewMode('active')">Active</button>
         <button class="btn btn-small btn-link" ng-click="todoList.toggleViewMode('completed')">Completed</button>]
       <ul style="list-style:none;" >
-        <li ng-repeat="todo in todoList.todos">
+        <li ng-repeat="todo in todoList.todos | filter: todoList.filterText">
           <label ng-show="todoList.isVisible($index)">
             <span class="done-{{todo.done}}">{{todo.text}}</span>
             <button class="btn btn-small btn-primary" ng-click="todoList.completeTodo($index)">Done!</button>
